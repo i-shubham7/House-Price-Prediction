@@ -7,7 +7,6 @@ from sklearn.linear_model import LinearRegression
 file_path = 'house_price_prediction_dataset.csv'  # Adjust this path if needed
 df = pd.read_csv(file_path)
 
-# Assume the model is trained using the same code provided earlier
 # Feature selection
 features = ['num_bedrooms', 'num_bathrooms', 'square_footage', 'age_of_house']
 X = df[features]
@@ -29,13 +28,13 @@ age = st.number_input("Enter the age of the house:", min_value=0, max_value=100,
 # Prediction button
 if st.button("Predict House Price"):
     # Create input array for prediction
-    input_data = np.array([[bedrooms, bathrooms, sqft_living, age]])
-    
+    input_data = np.array([[bedrooms, bathrooms, sqft_living, age]]).reshape(1, -1)  # Ensuring 2D array for model
+
     # Perform prediction
     predicted_price = model.predict(input_data)
-    
+
     # Display the prediction
     st.write(f"Predicted House Price: ${predicted_price[0]:,.2f}")
 
-# To run the app, save this script as app.py and execute the following command in the terminal:
+# Note: To run the app locally, save this script as app.py and run the following command in the terminal:
 # streamlit run app.py
