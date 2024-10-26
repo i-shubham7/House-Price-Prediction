@@ -37,5 +37,3 @@ if st.button("Predict House Price"):
     # Display the prediction
     st.write(f"Predicted House Price: ${predicted_price[0]:,.2f}")
 
-# To run the app, save this script as app.py and execute the following command in the terminal:
-# streamlit run app.py
